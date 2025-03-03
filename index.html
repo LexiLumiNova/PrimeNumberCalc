@@ -1,0 +1,38 @@
+<html>
+  <body>
+    <h1>Prime Number Calculator</h1>
+    <input type="number" id="num" placeholder="Enter a number">
+    <button onclick="checkPrime()">Check if Prime</button>
+    <table id="result-table">
+      <tr>
+        <th>Number</th>
+        <th>Is Prime?</th>
+      </tr>
+      <tr id="result-row">
+        <td id="number"></td>
+        <td id="is-prime"></td>
+      </tr>
+    </table>
+
+    <script>
+      function checkPrime() {
+        const num = parseInt(document.getElementById("num").value);
+        const isPrime = isPrimeNumber(num);
+        document.getElementById("number").innerHTML = num;
+        document.getElementById("is-prime").innerHTML = isPrime ? "1" : "0";
+      }
+
+      function isPrimeNumber(num) {
+        if (num <= 1) {
+          return false;
+        }
+        for (let i = 2; i <= Math.sqrt(num); i++) {
+          if (num % i === 0) {
+            return false;
+          }
+        }
+        return true;
+      }
+    </script>
+  </body>
+</html>
